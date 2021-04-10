@@ -1,4 +1,4 @@
-# flutter_app
+# Fire Circle
 
 A new Flutter application.
 
