@@ -4,35 +4,26 @@ import './xd_top.dart';
 import 'package:adobe_xd/page_link.dart';
 
 class xd_sign_up extends StatelessWidget {
+
+  final _passwordFocusNode = FocusNode();
+  final _emailFocusNode = FocusNode();
+  final _form = GlobalKey<FormState>(); // 追加
+  String _accountName;
+  String _email;
+  String _password;
+
   xd_sign_up({
     Key key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color.fromRGBO(241, 240, 242, 1),
       body: Stack(
         children: <Widget>[
-          Container(),
-          Transform.translate(
-            offset: Offset(0.0, 478.0),
-            child:
-                // Adobe XD layer: 'bottom' (group)
-                SizedBox(
-              width: 375.0,
-              height: 334.0,
-              child: Stack(
-                children: <Widget>[
-                  Container(),
-                  Container(),
-                ],
-              ),
-            ),
-          ),
-          // Adobe XD layer: 'top' (group)
           SizedBox(
-            width: 375.0,
-            height: 269.0,
+            width: 400.0,
+            height: 280.0,
             child: Stack(
               children: <Widget>[
                 Pinned.fromSize(
@@ -98,112 +89,126 @@ class xd_sign_up extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(24.0, 91.0),
-            child:
-                // Adobe XD layer: 'content' (group)
-                SizedBox(
-              width: 327.0,
-              height: 355.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 327.0, 271.0),
-                    size: Size(327.0, 355.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
+            offset: Offset(0.0, 91.0),
+            child: Form(
+                key: _form,
+                child: Column(
+                  children: [
+                    Container(
+                    padding: const EdgeInsets.all(40),
+                    width: 350,
+                    height: 350,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
                     child:
-                        // Adobe XD layer: 'bg' (shape)
-                        Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40.0),
-                        color: const Color(0xffffffff),
+                    Column(
+                        children: [
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'アカウント名'),
+                            textInputAction: TextInputAction.next,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please provide a value.';
+                              }
+                              if (value.length <= 4) {
+                                return 'id must be longer than 4 characters.';
+                              }
+                              if (16 < value.length) {
+                                return 'id must be less than 16 characters.';
+                              }
+                              return null;
+                            },
+                            onFieldSubmitted: (_) {
+                              FocusScope.of(context).requestFocus(_emailFocusNode);
+                            },
+                            onSaved: (value) {
+                              _accountName = value;
+                            },
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                            child:
+                            TextFormField(
+                              decoration: InputDecoration(labelText: 'eメール'),
+                              obscureText: true,
+                              focusNode: _emailFocusNode,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a email.';
+                                }
+                                return null;
+                              },
+                              onFieldSubmitted: (_) {
+                                FocusScope.of(context).requestFocus(_passwordFocusNode);
+                              },
+                              onSaved: (value) {
+                                _email = value;
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                            child:
+                            TextFormField(
+                              decoration: InputDecoration(labelText: 'password'),
+                              obscureText: true,
+                              focusNode: _passwordFocusNode,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a password.';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _password = value;
+                              },
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(32.0, 32.0, 263.0, 199.0),
-                    size: Size(327.0, 355.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    fixedHeight: true,
-                    child:
-                        // Adobe XD layer: 'textfields' (none)
-                        GridView.count(
-                      mainAxisSpacing: 44,
-                      crossAxisSpacing: 20,
-                      crossAxisCount: 1,
-                      childAspectRatio: 11.68,
-                      children: [
-                        {
-                          'text': 'アカウント名',
-                        },
-                        {
-                          'text': 'Eメール',
-                        },
-                        {
-                          'text': 'パスワード',
-                        }
-                      ].map((map) {
-                        final text = map['text'];
-                        return
-                            // Adobe XD layer: 'textfield' (component)
-                            SizedBox(
-                          width: 327.0,
-                          height: 27.0,
-                          child: Stack(
-                            children: <Widget>[
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 26.0, 327.0, 1.0),
-                                size: Size(327.0, 27.0),
-                                pinLeft: true,
-                                pinRight: true,
-                                pinBottom: true,
-                                fixedHeight: true,
-                                child:
-                                    // Adobe XD layer: 'bg' (shape)
-                                    Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                    color: const Color(0xffdddddd),
-                                  ),
-                                ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                          child:
+                          SizedBox(
+                            width: 330,
+                            height: 50,
+                            child: ElevatedButton(
+                            child: Text(
+                              "登録する",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
                               ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 0.0, 95.0, 16.0),
-                                size: Size(327.0, 27.0),
-                                pinLeft: true,
-                                pinTop: true,
-                                fixedWidth: true,
-                                fixedHeight: true,
-                                child: Text(
-                                  text,
-                                  style: TextStyle(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 16,
-                                    color: const Color(0x52241332),
-                                    letterSpacing: -0.16,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25,
-                                  ),
-                                  textHeightBehavior: TextHeightBehavior(
-                                      applyHeightToFirstAscent: false),
-                                  textAlign: TextAlign.left,
-                                ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xff52912e),
+                              onPrimary: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
                               ),
-                            ],
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => xd_top())
+                              );
+                            },
                           ),
-                        );
-                      }).toList(),
+                          ),
+                        ),
+                      ],
                     ),
+                  ]
                   ),
-                  Container(),
-                ],
+                )
               ),
-            ),
-          ),
         ],
       ),
     );

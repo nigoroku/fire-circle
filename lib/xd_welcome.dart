@@ -83,7 +83,7 @@ class xd_welcome extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'ircle',
+                            text: 'circle',
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.w700,
@@ -318,7 +318,7 @@ class xd_welcome extends StatelessWidget {
                                 ),
                               ),
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromRGBO(65,118,35,1),
+                                primary: Color(0xff52912e),
                                 onPrimary: Colors.black,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),

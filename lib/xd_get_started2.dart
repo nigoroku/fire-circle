@@ -132,7 +132,7 @@ class xd_get_started2 extends StatelessWidget {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(65,118,35,1),
+                            primary: Color(0xff52912e),
                             onPrimary: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
