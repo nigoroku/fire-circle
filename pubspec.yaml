@@ -8,18 +8,6 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
-dependencies:
-  flutter:
-    sdk: flutter
-
-  cupertino_icons: ^1.0.2
-
-  adobe_xd: ^1.0.0+1
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
 flutter:
   uses-material-design: true
   assets:
@@ -30,3 +18,21 @@ flutter:
     - assets/images/started2.jpg
     - assets/images/started3.jpg
     - assets/images/welcome.jpg
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  adobe_xd: ^1.0.0+1
+  entity: ^2.0.0
+  firebase_core: ^0.3.0
+  cloud_firestore: ^0.9.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  adobe_xd: ^1.0.0+1
+  entity: ^2.0.0
+  firebase_core: ^0.3.0
+  cloud_firestore: ^0.9.5

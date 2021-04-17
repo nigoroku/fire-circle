@@ -387,9 +387,13 @@ class xd_top extends StatelessWidget {
               ),
             ),
           ),
-          SvgPicture.string(
-            _svg_4fj6g2,
-            allowDrawingOutsideViewBox: true,
+          SizedBox(
+            width: 460,
+            height: 900,
+            child: SvgPicture.string(
+                _svg_4fj6g2,
+                allowDrawingOutsideViewBox: true,
+              ),
           ),
           Transform.translate(
             offset: Offset(40.0, 288.0),
@@ -1003,7 +1007,7 @@ class xd_top extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(362.5, 55.3),
+            offset: Offset(362.5, 155.3),
             child: SvgPicture.string(
               _svg_kpunc2,
               allowDrawingOutsideViewBox: true,
