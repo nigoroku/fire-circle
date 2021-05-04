@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import './xd_denysnevozhai63Znf38gnXkunsplash.dart';
+import 'xd_denysnevozhai63Znf38gnXkunsplash.dart';
 import 'package:adobe_xd/pinned.dart';
-import './xd_get_started1.dart';
+import 'xd_get_started1.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class xd_welcome extends StatelessWidget {
-  xd_welcome({
-    Key key,
+class XdWelcome extends StatelessWidget {
+  XdWelcome({
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,10 @@ class xd_welcome extends StatelessWidget {
           Transform.translate(
             offset: Offset(-5.0, 0.0),
             child:
-                // Adobe XD layer: 'denys-nevozhai-63Zn…' (component)
-                SizedBox(
+              SizedBox(
               width: 383.0,
               height: 812.0,
-              child: xd_denysnevozhai63Znf38gnXkunsplash(),
+              child: XdDenysnevozhai63Znf38gnXkunsplash(),
             ),
           ),
           Transform.translate(
@@ -327,7 +326,7 @@ class xd_welcome extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => xd_get_started1())
+                                    MaterialPageRoute(builder: (context) => XdGetStarted1())
                                 );
                               },
                           ),

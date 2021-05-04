@@ -1,27 +1,29 @@
 
 class Share {
 
-  int shareId;
+  String shareId;
 
-  int parentShareId;
+  String parentShareId;
 
-  int roomId;
+  String roomId;
 
-  int userId;
+  String userId;
 
-  String comment;
+  String? comment;
 
-  String shareImage;
+  String? shareImage;
 
-  String shareStatus;
+  String? shareStatus;
 
-  DateTime shareDate;
+  DateTime? shareDate;
 
-  Share({this.shareId, this.parentShareId, this.roomId, this.userId, this.comment, this.shareImage, this.shareStatus, this.shareDate});
+  Share({required this.shareId, required this.parentShareId, required this.roomId,
+    required this.userId, this.comment, this.shareImage, this.shareStatus, this.shareDate});
 
   factory Share.fromMap(Map<String, dynamic> map) =>
       Share(shareId: map['share_id'], parentShareId: map['parent_share_id'], roomId: map['room_id'],
-          userId: map['user_id'], comment: map['comment'], shareImage: map['share_image'], shareStatus: map['share_status'], shareDate: map['share_date']);
+          userId: map['user_id'], comment: map['comment'], shareImage: map['share_image'],
+          shareStatus: map['share_status'], shareDate: map['share_date']);
 
   Map<String, dynamic> toMap() => {
     'share_id': shareId,

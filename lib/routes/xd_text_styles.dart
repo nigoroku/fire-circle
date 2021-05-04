@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class xd_text_styles {
+class XdTextStyles {
   static const TextStyle SUBHEADS = const TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 12,

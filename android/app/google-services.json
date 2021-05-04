@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "652006579925",
-    "project_id": "fire-circle-4eaab",
-    "storage_bucket": "fire-circle-4eaab.appspot.com"
+    "project_number": "969056280042",
+    "project_id": "share-cam",
+    "storage_bucket": "share-cam.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:652006579925:android:0ad42d23fc62f8c4cdcc5c",
+        "mobilesdk_app_id": "1:969056280042:android:a4adfc801ae65ff9e3e693",
         "android_client_info": {
-          "package_name": "com.moizumi.fire_circle"
+          "package_name": "com.example.fire_circle"
         }
       },
       "oauth_client": [
         {
-          "client_id": "652006579925-e187439cq7afhqu9k00bgbfjq6t23st0.apps.googleusercontent.com",
+          "client_id": "969056280042-p2dsdlvp5q1a3nprvog0p7q3n463olv1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA8HkWJS1VzmHSyEA5cFWU0k1x-ASPHsZs"
+          "current_key": "AIzaSyAu103BXnFMdT4Ix7RbR2pPSwekDIStRtI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "652006579925-e187439cq7afhqu9k00bgbfjq6t23st0.apps.googleusercontent.com",
+              "client_id": "969056280042-p2dsdlvp5q1a3nprvog0p7q3n463olv1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

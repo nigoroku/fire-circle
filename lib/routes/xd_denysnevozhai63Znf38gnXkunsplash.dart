@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
-class xd_denysnevozhai63Znf38gnXkunsplash extends StatelessWidget {
-  xd_denysnevozhai63Znf38gnXkunsplash({
-    Key key,
+class XdDenysnevozhai63Znf38gnXkunsplash extends StatelessWidget {
+  XdDenysnevozhai63Znf38gnXkunsplash({
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

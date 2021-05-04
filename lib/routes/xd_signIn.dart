@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
-class xd_signIn extends StatelessWidget {
-  xd_signIn({
-    Key key,
+class XdSignIn extends StatelessWidget {
+  XdSignIn({
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

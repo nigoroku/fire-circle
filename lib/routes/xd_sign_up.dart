@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './xd_top.dart';
+import './slide_pages.dart';
 import 'package:adobe_xd/page_link.dart';
 
-class xd_sign_up extends StatelessWidget {
+class XdSignUp extends StatelessWidget {
 
   final _passwordFocusNode = FocusNode();
   final _emailFocusNode = FocusNode();
   final _form = GlobalKey<FormState>(); // 追加
-  String _accountName;
-  String _email;
-  String _password;
+  String _accountName = "";
+  String _email = "";
+  String _password = "";
 
-  xd_sign_up({
-    Key key,
+  XdSignUp({
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,7 @@ class xd_sign_up extends StatelessWidget {
                             decoration: InputDecoration(labelText: 'アカウント名'),
                             textInputAction: TextInputAction.next,
                             validator: (value) {
-                              if (value.isEmpty) {
+                              if (value == null) {
                                 return 'Please provide a value.';
                               }
                               if (value.length <= 4) {
@@ -124,7 +125,7 @@ class xd_sign_up extends StatelessWidget {
                               FocusScope.of(context).requestFocus(_emailFocusNode);
                             },
                             onSaved: (value) {
-                              _accountName = value;
+                              _accountName = value.toString();
                             },
                           ),
                           Padding(
@@ -135,16 +136,13 @@ class xd_sign_up extends StatelessWidget {
                               obscureText: true,
                               focusNode: _emailFocusNode,
                               validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Please enter a email.';
-                                }
-                                return null;
+                                return value == null ? 'Please enter a email.' : null;
                               },
                               onFieldSubmitted: (_) {
                                 FocusScope.of(context).requestFocus(_passwordFocusNode);
                               },
                               onSaved: (value) {
-                                _email = value;
+                                _email = value.toString();
                               },
                             ),
                           ),
@@ -156,13 +154,10 @@ class xd_sign_up extends StatelessWidget {
                               obscureText: true,
                               focusNode: _passwordFocusNode,
                               validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Please enter a password.';
-                                }
-                                return null;
+                                return value !=  null ? 'Please enter a password.' : null;
                               },
                               onSaved: (value) {
-                                _password = value;
+                                _password = value.toString();
                               },
                             ),
                           )
@@ -197,7 +192,7 @@ class xd_sign_up extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => xd_top())
+                                  MaterialPageRoute(builder: (context) => SlidePages())
                               );
                             },
                           ),

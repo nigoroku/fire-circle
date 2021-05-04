@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:adobe_xd/pinned.dart';
-import './xd_get_started2.dart';
+import 'xd_get_started2.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class xd_get_started1 extends StatelessWidget {
-  xd_get_started1({
-    Key key,
+class XdGetStarted1 extends StatelessWidget {
+  XdGetStarted1({
+    Key? key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,40 +55,42 @@ class xd_get_started1 extends StatelessWidget {
                   pinBottom: true,
                   fixedWidth: true,
                   fixedHeight: true,
-                    child: Stack(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 330,
-                          height: 50,
-                          child:ElevatedButton.icon(
-                            icon: const Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            ),
-                            label: Text(
-                              "次へ",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              primary: Color(0xff52912e),
-                              onPrimary: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => xd_get_started2())
-                              );
-                            },
+                  child: Stack(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 330,
+                        height: 50,
+                        child: ElevatedButton.icon(
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
                           ),
-                        )
-                      ],
-                    ),
+                          label: Text(
+                            "次へ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xff52912e),
+                            onPrimary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  bottomLeft: Radius.circular(30)),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => XdGetStarted2()));
+                          },
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Container(),
                 Pinned.fromSize(
@@ -213,7 +216,7 @@ class xd_get_started1 extends StatelessWidget {
                               child:
                                   // Adobe XD layer: 'Ellipse' (shape)
                                   SvgPicture.string(
-                                    _svg_sxdu9n,
+                                _svg_sxdu9n,
                                 allowDrawingOutsideViewBox: true,
                                 fit: BoxFit.fill,
                               ),

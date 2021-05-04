@@ -1,20 +1,22 @@
 
 class CheckIn {
 
-  int checkInId;
+  String checkInId;
 
-  int roomId;
+  String roomId;
 
-  int userId;
+  String userId;
 
   DateTime startDate;
 
-  DateTime endDate;
+  DateTime? endDate;
 
-  CheckIn({this.checkInId, this.roomId, this.userId, this.startDate, this.endDate});
+  CheckIn({required this.checkInId, required this.roomId,
+    required this.userId, required this.startDate, this.endDate});
 
   factory CheckIn.fromMap(Map<String, dynamic> map) =>
-      CheckIn(checkInId: map['check_in_id'], roomId: map['room_id'], userId: map['user_id'], startDate: map['start_date'], endDate: map['end_date']);
+      CheckIn(checkInId: map['check_in_id'], roomId: map['room_id'],
+          userId: map['user_id'], startDate: map['start_date'], endDate: map['end_date']);
 
   Map<String, dynamic> toMap() => {
     'check_in_id': checkInId,

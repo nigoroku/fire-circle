@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import './xd_get_started3.dart';
+import 'xd_get_started3.dart';
 
-class xd_get_started2 extends StatelessWidget {
-  xd_get_started2({
-    Key key,
+class XdGetStarted2 extends StatelessWidget {
+  XdGetStarted2({
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,7 @@ class xd_get_started2 extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => xd_get_started3())
+                                MaterialPageRoute(builder: (context) => XdGetStarted3())
                             );
                           },
                         ),
