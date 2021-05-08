@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'routes/xd_welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import './routes/slide_pages.dart';
+import 'package:record/record.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,47 +12,75 @@ void main() async {
   runApp(MyApp());
 }
 
+class UserState extends ChangeNotifier{
+  late User user;
+  void setUser(User currentUser){
+    user = currentUser;
+    notifyListeners();
+  }
+}
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
+  final UserState user = UserState();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: XdWelcome(),
+
+    return ChangeNotifierProvider<UserState>.value(
+        value: user,
+        child: MaterialApp(
+          //デバックラベル非表示
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: LoginCheck(),
+          initialRoute: "/",
+          routes:<String, WidgetBuilder>{
+            "/login":(BuildContext context) => XdWelcome(),
+            "/home":(BuildContext context) => SlidePages(),
+          },
+        )
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class LoginCheck extends StatefulWidget{
+  LoginCheck({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _LoginCheckState createState() => _LoginCheckState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _LoginCheckState extends State<LoginCheck>{
+  //ログイン状態のチェック(非同期で行う)
+  void checkUser() async{
+    final currentUser = await FirebaseAuth.instance.currentUser;
+    final userState = Provider.of<UserState>(context,listen: false);
+    if(currentUser == null){
+      Navigator.pushReplacementNamed(context,"/login");
+    }else{
+      userState.setUser(currentUser);
+      Navigator.pushReplacementNamed(context, "/home");
+    }
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState(){
+    super.initState();
+    checkUser();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: ElevatedButton(onPressed: () {
-
-        }, child: Text('次へ'))
+        child: Container(
+          child: Text("Loading..."),
+        ),
       ),
     );
   }

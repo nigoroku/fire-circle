@@ -5,6 +5,7 @@ class XdDenysnevozhai63Znf38gnXkunsplash extends StatelessWidget {
   XdDenysnevozhai63Znf38gnXkunsplash({
     Key? key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,9 +17,7 @@ class XdDenysnevozhai63Znf38gnXkunsplash extends StatelessWidget {
           pinRight: true,
           pinTop: true,
           pinBottom: true,
-          child:
-              // Adobe XD layer: 'denys-nevozhai-63Zn…' (shape)
-              Container(
+          child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: const AssetImage('assets/images/welcome.jpg'),

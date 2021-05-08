@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import './xd_top.dart';
 import './slide_pages.dart';
-import 'package:adobe_xd/page_link.dart';
 
-class XdSignUp extends StatelessWidget {
+class SignUp extends StatelessWidget {
 
   final _passwordFocusNode = FocusNode();
   final _emailFocusNode = FocusNode();
@@ -13,7 +11,7 @@ class XdSignUp extends StatelessWidget {
   String _email = "";
   String _password = "";
 
-  XdSignUp({
+  SignUp({
     Key? key,
   }) : super(key: key);
   @override
@@ -41,7 +39,7 @@ class XdSignUp extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(80.0),
                       ),
-                      color: const Color(0xff52912e),
+                      color: const Color.fromRGBO(219, 219, 219, 1),
                     ),
                   ),
                 ),

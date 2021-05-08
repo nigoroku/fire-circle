@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'xd_denysnevozhai63Znf38gnXkunsplash.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'xd_get_started1.dart';
+import 'xd_sign_in.dart';
+import 'xd_sign_up.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,51 +11,49 @@ class XdWelcome extends StatelessWidget {
   XdWelcome({
     Key? key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: const Color(0xff253e12),
       body: Stack(
         children: <Widget>[
           Transform.translate(
             offset: Offset(-5.0, 0.0),
-            child:
-              SizedBox(
-              width: 383.0,
-              height: 812.0,
+            child: SizedBox(
+              width: width,
+              height: height,
               child: XdDenysnevozhai63Znf38gnXkunsplash(),
             ),
           ),
+          // // マスク画像
+          // Transform.translate(
+          //   offset: Offset(0.0, 0.0),
+          //   child: Container(
+          //     width: 450.0,
+          //     height: 861.0,
+          //     decoration: BoxDecoration(
+          //       color: const Color.fromRGBO(0, 0, 0, 0.5),
+          //       border: Border.all(width: 1.0, color: const Color(0x25707070)),
+          //     ),
+          //   ),
+          // ),
           Transform.translate(
-            offset: Offset(0.0, 0.0),
-            child: Container(
-              width: 450.0,
-              height: 861.0,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(0, 0, 0, 0.5),
-                border: Border.all(width: 1.0, color: const Color(0x25707070)),
-              ),
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(34.0, 315.0),
-            child:
-                // Adobe XD layer: 'text' (group)
-                SizedBox(
-              width: 316.0,
-              height: 151.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 316.0, 80.0),
-                    size: Size(316.0, 151.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    fixedHeight: true,
-                    child:
-                        // Adobe XD layer: 'Fire Circle' (text)
-                        Text.rich(
+            offset: Offset(width * 0.25, 180.0),
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    'assets/images/logo.svg',
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: Text.rich(
                       TextSpan(
                         style: TextStyle(
                           fontFamily: 'Montserrat',
@@ -63,28 +63,9 @@ class XdWelcome extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: 'F',
+                            text: 'sharecam',
                             style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'ire ',
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'C',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'circle',
-                            style: TextStyle(
-                              fontSize: 32,
+                              fontSize: 40,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -95,13 +76,8 @@ class XdWelcome extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(24.0, 80.0, 260.0, 71.0),
-                    size: Size(316.0, 151.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinBottom: true,
-                    fixedHeight: true,
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
                     child: Text(
                       'キャンパーたちの\nキャンパーたちによる\nキャンパーのためのアプリであるために',
                       style: TextStyle(
@@ -117,223 +93,112 @@ class XdWelcome extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                ],
-              ),
-            ),
+                ]),
           ),
-          Transform.translate(
-            offset: Offset(0.0, 788.0),
-            child:
-                // Adobe XD layer: 'bottom' (group)
-                SizedBox(
-              width: 375.0,
-              height: 24.0,
-              child: Stack(
+          Positioned(
+            bottom: 0,
+            width: 400,
+            height: 320,
+            child: tabController(
+              context,
+              Column(
                 children: <Widget>[
-                  Container(),
-                ],
-              ),
-            ),
-          ),
-          // Adobe XD layer: 'top' (group)
-          SizedBox(
-            width: 375.0,
-            height: 44.0,
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(0.0, 0.0, 375.0, 44.0),
-                  size: Size(375.0, 44.0),
-                  pinLeft: true,
-                  pinRight: true,
-                  pinTop: true,
-                  pinBottom: true,
-                  child:
-                      // Adobe XD layer: 'bg' (shape)
-                      SvgPicture.string(
-                    _svg_ojpl3d,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Container(),
-              ],
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(0.0, 671.0),
-            child:
-                // Adobe XD layer: 'content' (group)
-                SizedBox(
-              width: 375.0,
-              height: 104.0,
-              child: Stack(
-                children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 375.0, 104.0),
-                    size: Size(375.0, 104.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    pinBottom: true,
-                    child:
-                        // Adobe XD layer: 'buttons' (group)
-                        Stack(
-                      children: <Widget>[
-                        Pinned.fromSize(
-                          bounds: Rect.fromLTWH(0.0, 44.0, 375.0, 60.0),
-                          size: Size(375.0, 104.0),
-                          pinLeft: true,
-                          pinRight: true,
-                          pinBottom: true,
-                          fixedHeight: true,
-                          child:
-                              // Adobe XD layer: 'button' (group)
-                              Stack(
-                            children: <Widget>[
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(0.0, 0.0, 375.0, 60.0),
-                                size: Size(375.0, 60.0),
-                                pinLeft: true,
-                                pinRight: true,
-                                pinTop: true,
-                                pinBottom: true,
-                                child:
-                                    // Adobe XD layer: 'bg' (shape)
-                                    Container(
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment(0.0, -1.0),
-                                      end: Alignment(0.0, 1.0),
-                                      colors: [
-                                        Colors.transparent,
-                                        Colors.transparent
-                                      ],
-                                      stops: [0.0, 1.0],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Pinned.fromSize(
-                                bounds: Rect.fromLTWH(146.0, 22.0, 84.0, 18.0),
-                                size: Size(375.0, 60.0),
-                                fixedWidth: true,
-                                fixedHeight: true,
-                                child: Text(
-                                  'FACEBOOK',
-                                  style: TextStyle(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 14,
-                                    color: const Color(0xffffffff),
-                                    letterSpacing: 0.056,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.8571428571428572,
-                                  ),
-                                  textHeightBehavior: TextHeightBehavior(
-                                      applyHeightToFirstAscent: false),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
+                  Container(
+                    width: width * 0.85,
+                    height: 45,
+                    margin: const EdgeInsets.only(top: 100, bottom: 10.0),
+                    child: ElevatedButton(
+                      child: Text(
+                        "Facebook で登録",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
                         ),
-                      ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xff132641),
+                        onPrimary: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Container(
+                    width: width * 0.85,
+                    height: 45,
+                    child: ElevatedButton(
+                      child: Text(
+                        "メールアドレスで登録",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
                     ),
                   ),
                 ],
               ),
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(166.1, 256.2),
-            child: SvgPicture.string(
-              _svg_joyrrk,
-              allowDrawingOutsideViewBox: true,
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(24.0, 652.0),
-            child:
-                // Adobe XD layer: 'buttons' (group)
-                SizedBox(
-              width: 327.0,
-              height: 120.0,
-              child: Stack(
+              Column(
                 children: <Widget>[
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 68.0, 327.0, 52.0),
-                    size: Size(327.0, 120.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinBottom: true,
-                    fixedHeight: true,
-                    child:
-                        // Adobe XD layer: 'button' (group)
-                        Stack(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 330,
-                          height: 90,
-                          child:ElevatedButton(
-                            child: Text(
-                              "Facebook",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              primary: Color(0xff132641),
-                              onPrimary: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            onPressed: () {},
-                          ),
-                        )
-                      ],
+                  Container(
+                    width: width * 0.85,
+                    height: 45,
+                    margin: const EdgeInsets.only(top: 100, bottom: 10.0),
+                    child: ElevatedButton(
+                      child: Text(
+                        "Facebook でログイン",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xff132641),
+                        onPrimary: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {},
                     ),
                   ),
-                  Pinned.fromSize(
-                    bounds: Rect.fromLTWH(0.0, 0.0, 327.0, 52.0),
-                    size: Size(327.0, 120.0),
-                    pinLeft: true,
-                    pinRight: true,
-                    pinTop: true,
-                    fixedHeight: true,
-                      child:
-                      Stack(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 330,
-                          height: 90,
-                          child:ElevatedButton(
-                              child: Text(
-                                "ログイン",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xff52912e),
-                                onPrimary: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => XdGetStarted1())
-                                );
-                              },
-                          ),
-                        )
-                      ],
-                    )
-                  )
+                  Container(
+                    width: width * 0.85,
+                    height: 45,
+                    child: ElevatedButton(
+                      child: Text(
+                        "メールアドレスでログイン",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignIn()));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -344,7 +209,51 @@ class XdWelcome extends StatelessWidget {
   }
 }
 
+class TabInfo {
+  String label;
+  Widget widget;
+
+  TabInfo(this.label, this.widget);
+}
+
+Widget tabController(BuildContext context, Widget createTab, Widget loginTab) {
+  final List<TabInfo> _tabs = [
+    TabInfo("新規登録", createTab),
+    TabInfo("ログイン", loginTab),
+  ];
+
+  double width = MediaQuery.of(context).size.width;
+
+  return DefaultTabController(
+    length: _tabs.length,
+    child: Scaffold(
+      backgroundColor: Color.fromRGBO(255, 255, 255, 0.66),
+      appBar: PreferredSize(
+        child: AppBar(
+          backgroundColor: Color.fromRGBO(255, 255, 255, 0.66),
+          bottom: PreferredSize(
+            child: TabBar(
+              isScrollable: true,
+              labelColor: Colors.black,
+              labelPadding:
+                  EdgeInsets.only(left: width * 0.15, right: width * 0.15),
+              unselectedLabelColor: Colors.grey,
+              indicatorColor: Colors.black,
+              tabs: _tabs.map((TabInfo tab) {
+                return Ink(child: Tab(text: tab.label));
+              }).toList(),
+            ),
+            preferredSize: Size.fromHeight(10.0),
+          ),
+        ),
+        preferredSize: Size.fromHeight(50.0),
+      ),
+      body: TabBarView(children: _tabs.map((tab) => tab.widget).toList()),
+    ),
+  );
+}
+
 const String _svg_ojpl3d =
     '<svg viewBox="0.0 0.0 375.0 44.0" ><path transform="translate(0.0, 44.0)" d="M 0 -44 L 375 -44 L 375 0 L 0 0 L 0 -44 Z" fill="none" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 const String _svg_joyrrk =
-    '<svg viewBox="166.1 256.2 42.8 42.8" ><path transform="translate(166.11, 256.24)" d="M 21.38903999328613 0 C 9.576197624206543 0 -1.918207317430642e-06 9.572756767272949 -2.18359105019772e-07 21.38134765625 C -2.18359105019772e-07 33.18993759155273 9.576200485229492 42.7626953125 21.38903999328613 42.7626953125 C 33.20188140869141 42.7626953125 42.77807998657227 33.18993377685547 42.77807998657227 21.38134002685547 C 42.77807998657227 9.572752952575684 33.20187759399414 0 21.38903999328613 0 Z M 18.6910400390625 9.051575660705566 L 18.6910400390625 9.058535575866699 C 22.73020172119141 8.982989311218262 26.40938186645508 11.37970924377441 27.97215843200684 15.10335922241211 C 29.5349235534668 18.82710075378418 28.66788482666016 23.13147354125977 25.7841682434082 25.95933532714844 C 25.67288208007812 26.0812816619873 25.50326347351074 26.1317253112793 25.34339332580566 26.09041404724121 C 25.18352317810059 26.04909896850586 25.05960655212402 25.92280578613281 25.02138519287109 25.7622241973877 C 24.9831600189209 25.60164070129395 25.03689384460449 25.43309211730957 25.1610164642334 25.3242301940918 C 27.78606986999512 22.75000381469727 28.57316207885742 18.83927917480469 27.15057182312012 15.44962406158447 C 25.81442451477051 12.26594066619873 22.7674503326416 10.22310924530029 19.35770797729492 10.03468608856201 C 19.72595977783203 10.94579887390137 19.86917877197266 11.93351364135742 19.61184120178223 12.89353656768799 C 19.32017135620117 13.98157978057861 18.60758590698242 14.8908519744873 17.66754150390625 15.50182342529297 C 17.63626098632812 15.54759979248047 17.59670829772949 15.58713722229004 17.55091857910156 15.618408203125 L 17.51610565185547 15.64276504516602 L 17.51262474060059 15.64276504516602 C 15.86591148376465 16.59976005554199 14.74068832397461 18.24867248535156 14.45605278015137 20.13201332092285 C 14.17046356201172 22.0215015411377 14.75986480712891 23.93816184997559 16.0591869354248 25.33988952636719 C 16.17551040649414 25.45503616333008 16.21931648254395 25.62466812133789 16.17328071594238 25.78171539306641 C 16.12724494934082 25.93875694274902 15.99878311157227 26.05792808532715 15.83868503570557 26.09210586547852 C 15.6785888671875 26.12628173828125 15.51263427734375 26.06996154785156 15.40644264221191 25.94541549682617 C 13.92330074310303 24.34537887573242 13.24929332733154 22.15670394897461 13.57528591156006 19.99977111816406 C 13.88743877410889 17.93442344665527 15.12389278411865 16.15282249450684 16.88425254821777 15.04419994354248 C 16.91837310791016 14.9856595993042 16.96540260314941 14.93567276000977 17.02176284790039 14.89803886413574 L 17.04438972473145 14.88237857818604 C 17.0466194152832 14.87328910827637 17.0474739074707 14.87367820739746 17.04961204528809 14.87367820739746 C 17.88749694824219 14.38778591156006 18.49946594238281 13.59232807159424 18.75022315979004 12.65689468383789 C 19.00164222717285 11.71896553039551 18.87038040161133 10.7208251953125 18.38468742370605 9.879824638366699 C 18.37635040283203 9.865751266479492 18.36879730224609 9.851228713989258 18.36205863952637 9.836324691772461 L 18.29243469238281 9.677982330322266 C 18.23175239562988 9.541569709777832 18.24346160888672 9.383841514587402 18.3236198425293 9.257876396179199 C 18.40377616882324 9.131911277770996 18.54172325134277 9.05445671081543 18.69103813171387 9.05157470703125 Z M 19.86075401306152 17.1304817199707 C 21.95870590209961 17.09146118164062 23.87140274047852 18.34250259399414 24.68233871459961 20.28339576721191 C 25.49325752258301 22.22437477111816 25.04269409179688 24.46898651123047 23.54569816589355 25.94367599487305 C 23.37025833129883 26.11665725708008 23.08775329589844 26.11470985412598 22.91471290588379 25.93932914733887 C 22.74167060852051 25.76394844055176 22.74361991882324 25.48154640197754 22.91906356811523 25.30856895446777 C 24.15796089172363 24.0881404876709 24.53073310852051 22.23396682739258 23.8590145111084 20.62617874145508 C 23.25893592834473 19.18997573852539 21.89784049987793 18.33635711669922 20.38642883300781 18.16753196716309 C 20.47200393676758 18.55524635314941 20.64206504821777 18.93416786193848 20.53786468505859 19.32464408874512 C 20.4012565612793 19.83654975891113 20.01593589782715 20.20963668823242 19.61009979248047 20.53917694091797 C 19.58493614196777 20.65102577209473 19.51760292053223 20.74887084960938 19.4221134185791 20.8123607635498 L 19.4029655456543 20.82454109191895 L 19.39774322509766 20.81583976745605 C 19.39631652832031 20.81583976745605 19.39568710327148 20.81494903564453 19.39426231384277 20.81583976745605 L 19.39948463439941 20.82454109191895 C 18.63627624511719 21.26704597473145 18.11443901062012 22.03463363647461 17.98259925842285 22.91082382202148 C 17.85076522827148 23.78701210021973 18.12483215332031 24.67477035522461 18.72411346435547 25.32422828674316 C 18.89092636108398 25.50537109375 18.87923812866211 25.78739166259766 18.69801902770996 25.95413208007812 C 18.51679992675781 26.12087059020996 18.23467445373535 26.10918426513672 18.0678768157959 25.92802810668945 C 17.28527641296387 25.07988929748535 16.9299430847168 23.92096900939941 17.10183334350586 22.7785816192627 C 17.26212501525879 21.71325492858887 17.89544868469238 20.80021476745605 18.78503608703613 20.20857429504395 C 18.78561592102051 20.20857429504395 18.78619575500488 20.20857429504395 18.78677558898926 20.20857429504395 C 18.81922912597656 20.15901565551758 18.86124420166016 20.11642646789551 18.91036224365234 20.08329200744629 L 18.92950820922852 20.06937217712402 L 18.9329891204834 20.07807350158691 C 19.29864692687988 19.86568641662598 19.5683708190918 19.51628303527832 19.67798614501953 19.10540199279785 C 19.7877197265625 18.69425773620605 19.72973823547363 18.25586128234863 19.51784706115723 17.88739013671875 C 19.50951385498047 17.87331771850586 19.5019588470459 17.85879325866699 19.49522018432617 17.8438892364502 L 19.46040534973145 17.76210784912109 C 19.40114974975586 17.62576484680176 19.41382789611816 17.46886253356934 19.49420738220215 17.34379577636719 C 19.57458686828613 17.21872711181641 19.71207427978516 17.14197731018066 19.86075401306152 17.13917922973633 L 19.86075401306152 17.1304817199707 Z M 12.10966396331787 25.44951057434082 C 12.19797992706299 25.45460319519043 12.28749370574951 25.46931266784668 12.37598323822021 25.49300956726074 L 20.70844650268555 27.72545433044434 L 20.96780395507812 27.7950553894043 C 20.98247337341309 27.79780578613281 20.99699783325195 27.80128860473633 21.01131820678711 27.80549621582031 C 21.0267448425293 27.81103897094727 21.0418529510498 27.81742858886719 21.05657768249512 27.82463264465332 L 29.76153945922852 25.49300956726074 C 29.85002899169922 25.46895599365234 29.93951416015625 25.45841979980469 30.02785873413086 25.44951057434082 C 30.64627265930176 25.41387367248535 31.23349952697754 25.81867218017578 31.39948654174805 26.43783950805664 C 31.58915710449219 27.14547348022461 31.1622314453125 27.88387680053711 30.45431518554688 28.07345581054688 L 26.23151206970215 29.2044677734375 L 30.45431518554688 30.33547973632812 C 31.16223907470703 30.52506256103516 31.58918190002441 31.26511764526367 31.39948654174805 31.97283935546875 C 31.20981407165527 32.68047332763672 30.4712028503418 33.10725021362305 29.76328277587891 32.91766738891602 L 21.0670223236084 30.58778381347656 L 12.37598323822021 32.91592788696289 C 11.66806888580322 33.1056022644043 10.92945003509521 32.67873382568359 10.73977661132812 31.97109985351562 C 10.55008029937744 31.26337814331055 10.9770336151123 30.52506256103516 11.68494606018066 30.33547973632812 L 15.90426826477051 29.20620918273926 L 11.68494606018066 28.07519721984863 C 10.9770336151123 27.88552665710449 10.55010223388672 27.14538383483887 10.73977661132812 26.43783950805664 C 10.90576171875 25.81858253479004 11.49145126342773 25.41384315490723 12.10966396331787 25.44951057434082 Z M 11.9669303894043 26.34039878845215 C 11.79430389404297 26.36222648620605 11.64908123016357 26.48511505126953 11.59965515136719 26.66926383972168 C 11.53377723693848 26.91506004333496 11.66882038116455 27.14796447753906 11.91471099853516 27.21388816833496 L 17.62576675415039 28.74336433410645 L 19.34726333618164 28.28226089477539 L 12.14621829986572 26.35431861877441 C 12.08474540710449 26.34006309509277 12.02447605133057 26.33148956298828 11.9669303894043 26.34039878845215 Z M 30.17233276367188 26.34039878845215 C 30.11478805541992 26.33327293395996 30.05452156066895 26.33654403686523 29.99304580688477 26.35257911682129 L 11.91471099853516 31.1950511932373 C 11.66881275177002 31.26088714599609 11.53375053405762 31.49552917480469 11.59965515136719 31.74141693115234 C 11.6655330657959 31.98694610595703 11.90031909942627 32.12228775024414 12.14621829986572 32.05636215209961 L 30.22281265258789 27.21388816833496 C 30.46871185302734 27.14805221557617 30.60374641418457 26.9133186340332 30.53786659240723 26.66752243041992 C 30.48844337463379 26.48346519470215 30.3449592590332 26.36178016662598 30.17233276367188 26.34039878845215 Z M 24.57093811035156 29.64991569519043 L 22.79025840759277 30.12668037414551 L 29.99304580688477 32.05636215209961 C 30.23894500732422 32.12228775024414 30.47372817993164 31.98694610595703 30.53960990905762 31.74141693115234 C 30.60550308227539 31.49552917480469 30.47045135498047 31.26097679138184 30.22455215454102 31.1950511932373 L 24.72585487365723 29.72299575805664 C 24.66997337341309 29.7088794708252 24.61736297607422 29.68405723571777 24.57093811035156 29.64991569519043 Z" fill="#c9492b" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" width="42.778" height="42.763" viewBox="0 0 42.778 42.763"><path id="パス_807" data-name="パス 807" d="M21.389,0A21.381,21.381,0,1,0,42.778,21.381,21.385,21.385,0,0,0,21.389,0Zm-2.7,9.052v.007a9.862,9.862,0,0,1,7.093,16.9.446.446,0,1,1-.623-.635,8.91,8.91,0,0,0-5.8-15.29,4.494,4.494,0,0,1,.254,2.859A4.534,4.534,0,0,1,17.668,15.5a.446.446,0,0,1-.117.117l-.035.024h0a6.277,6.277,0,0,0-1.453,9.7.446.446,0,1,1-.653.606,7.093,7.093,0,0,1,1.478-10.9.446.446,0,0,1,.138-.146l.023-.016c0-.009,0-.009.005-.009A3.656,3.656,0,0,0,18.385,9.88a.445.445,0,0,1-.023-.043l-.07-.158a.445.445,0,0,1,.4-.626Zm1.17,8.079a5.145,5.145,0,0,1,3.685,8.813.446.446,0,1,1-.627-.635,4.265,4.265,0,0,0,.94-4.682,4.159,4.159,0,0,0-3.473-2.459,2.443,2.443,0,0,1,.151,1.157,2.459,2.459,0,0,1-.928,1.215.445.445,0,0,1-.188.273l-.019.012-.005-.009h0l.005.009a2.917,2.917,0,0,0-.675,4.5.446.446,0,0,1-.656.6,3.747,3.747,0,0,1,.717-5.719h0a.446.446,0,0,1,.124-.125l.019-.014,0,.009a1.6,1.6,0,0,0,.585-2.191.446.446,0,0,1-.023-.044l-.035-.082a.446.446,0,0,1,.4-.623ZM12.11,25.45a1.327,1.327,0,0,1,.266.043l8.332,2.232.259.07.044.01.045.019,8.7-2.332a1.629,1.629,0,0,1,.266-.043,1.336,1.336,0,0,1,.426,2.624L26.232,29.2l4.223,1.131a1.337,1.337,0,0,1-.691,2.582l-8.7-2.33-8.691,2.328a1.336,1.336,0,1,1-.691-2.58L15.9,29.206l-4.219-1.131a1.337,1.337,0,0,1,.425-2.626Zm-.143.891a.447.447,0,0,0-.052.873l5.711,1.529,1.721-.461-7.2-1.928A.477.477,0,0,0,11.967,26.34Zm18.205,0a.475.475,0,0,0-.179.012L11.915,31.2a.446.446,0,1,0,.232.861l18.077-4.842a.447.447,0,0,0-.05-.873Zm-5.6,3.31-1.781.477,7.2,1.93a.446.446,0,1,0,.232-.861l-5.5-1.472A.446.446,0,0,1,24.571,29.65Z" fill="#d1d5cc" fill-rule="evenodd"/></svg>';

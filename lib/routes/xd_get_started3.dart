@@ -221,7 +221,7 @@ class XdGetStarted3 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => XdSignUp())
+                          MaterialPageRoute(builder: (context) => SignUp())
                       );
                     },
                   ),

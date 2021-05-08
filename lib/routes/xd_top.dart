@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './xd_checkin.dart';
+import './check_in_page.dart';
 import '../models/camp_site.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,7 +28,8 @@ class XdTop {
 
         QuerySnapshot? querySnapshot = stream.data;
 
-        return new ListView(children: fetchCampSites(querySnapshot!).cast<Widget>());
+        return new ListView(
+            children: fetchCampSites(querySnapshot!).cast<Widget>());
       },
     );
 
@@ -77,7 +78,6 @@ class XdTop {
   List<StreamBuilder> fetchCampSites(QuerySnapshot querySnapshot) {
     int index = 1;
     return querySnapshot.docs.map((doc) {
-
       return StreamBuilder<QuerySnapshot>(
           stream: doc.reference
               .collection("rooms")
@@ -98,7 +98,8 @@ class XdTop {
             String roomId = querySnapshot.docs.first.id;
 
             return StreamBuilder<QuerySnapshot>(
-                stream: FirebaseFirestore.instance.collectionGroup("check_ins")
+                stream: FirebaseFirestore.instance
+                    .collectionGroup("check_ins")
                     .where('camp_site_id', isEqualTo: doc.id)
                     .where('room_id', isEqualTo: roomId)
                     .snapshots(),
@@ -112,7 +113,7 @@ class XdTop {
                   }
                   QuerySnapshot querySnapshot2 = stream.data!;
                   int checkInNum = querySnapshot2.docs.length;
-                  CampSite campSite =  CampSite.fromMap({
+                  CampSite campSite = CampSite.fromMap({
                     "camp_site_id": doc.id,
                     "name": doc["name"],
                     "postal_code": doc["postal_code"],
@@ -121,7 +122,14 @@ class XdTop {
                     "check_in_num": checkInNum
                   });
 
-                  var result = Stack(children: [createRow(campSite, index == 1)]);
+                  var result = GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push<void>(
+                          // TODO:userIdをログイン情報から取得する
+                          _createRoute(campSite, "userId"));
+                      },
+                      child:
+                          Stack(children: [createRow(campSite, index == 1)]));
                   index++;
                   return result;
                 });
@@ -130,7 +138,7 @@ class XdTop {
   }
 
   SizedBox createRow(CampSite campSite, bool isFirst) {
-    SizedBox sizedBox = SizedBox(
+    return SizedBox(
       width: 400.0,
       height: isFirst ? 340 : 200.0,
       child: Stack(
@@ -216,6 +224,21 @@ class XdTop {
         ],
       ),
     );
-    return sizedBox;
   }
+}
+
+Route _createRoute(CampSite campSite, String userId) {
+  return PageRouteBuilder<SlideTransition>(
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        CheckInPage(campSite: campSite, userId: userId),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var tween = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero);
+      var curveTween = CurveTween(curve: Curves.ease);
+
+      return SlideTransition(
+        position: animation.drive(curveTween).drive(tween),
+        child: child,
+      );
+    },
+  );
 }
