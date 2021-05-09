@@ -17,6 +17,14 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        title: Text('サインイン', style: TextStyle(color: Colors.black, fontSize: 16)),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: const Color.fromRGBO(241, 240, 242, 1),
       body: Stack(
         children: <Widget>[
@@ -41,47 +49,6 @@ class SignUp extends StatelessWidget {
                       ),
                       color: const Color.fromRGBO(219, 219, 219, 1),
                     ),
-                  ),
-                ),
-                Container(),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(105.0, 60.0, 48.0, 15.0),
-                  size: Size(375.0, 269.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'SIGN IN',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 12,
-                      color: const Color(0x99ffffff),
-                      letterSpacing: 0.048,
-                      fontWeight: FontWeight.w600,
-                      height: 2.1666666666666665,
-                    ),
-                    textHeightBehavior:
-                        TextHeightBehavior(applyHeightToFirstAscent: false),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Pinned.fromSize(
-                  bounds: Rect.fromLTWH(210.0, 60.0, 52.0, 15.0),
-                  size: Size(375.0, 269.0),
-                  fixedWidth: true,
-                  fixedHeight: true,
-                  child: Text(
-                    'SIGN UP',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 12,
-                      color: const Color(0xffffffff),
-                      letterSpacing: 0.048,
-                      fontWeight: FontWeight.w600,
-                      height: 2.1666666666666665,
-                    ),
-                    textHeightBehavior:
-                        TextHeightBehavior(applyHeightToFirstAscent: false),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ],
@@ -184,7 +151,7 @@ class SignUp extends StatelessWidget {
                               primary: Color(0xff52912e),
                               onPrimary: Colors.black,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(25),
                               ),
                             ),
                             onPressed: () {

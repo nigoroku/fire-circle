@@ -21,8 +21,12 @@ class SignIn extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('ログイン', style: TextStyle(color: Colors.white, fontSize: 16)),
-        backgroundColor: Colors.black,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        title: Text('ログイン', style: TextStyle(color: Colors.black, fontSize: 16)),
+        centerTitle: true,
+        backgroundColor: Colors.white,
       ),
       body: Stack(
         children: <Widget>[
@@ -117,17 +121,17 @@ class SignIn extends StatelessWidget {
                               height: 50,
                               child: ElevatedButton(
                                 child: Text(
-                                  "登録する",
+                                  "ログインする",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 14,
                                   ),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Color(0xff52912e),
+                                  primary: Color.fromRGBO(82, 145, 46, 1),
                                   onPrimary: Colors.black,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(25),
                                   ),
                                 ),
                                 onPressed: () {

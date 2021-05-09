@@ -44,3 +44,4 @@ dev_dependencies:
   cupertino_icons: ^1.0.2
   adobe_xd: ^1.0.0+1
   entity: ^2.0.0
+#  pedantic_mono: any

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'xd_denysnevozhai63Znf38gnXkunsplash.dart';
-import 'package:adobe_xd/pinned.dart';
-import 'xd_get_started1.dart';
 import 'xd_sign_in.dart';
 import 'xd_sign_up.dart';
-import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XdWelcome extends StatelessWidget {
@@ -105,7 +102,7 @@ class XdWelcome extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: width * 0.85,
-                    height: 45,
+                    height: 48,
                     margin: const EdgeInsets.only(top: 100, bottom: 10.0),
                     child: ElevatedButton(
                       child: Text(
@@ -116,10 +113,10 @@ class XdWelcome extends StatelessWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff132641),
+                        primary: Color.fromRGBO(39, 83, 147, 1),
                         onPrimary: Colors.black,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
                       onPressed: () {},
@@ -127,7 +124,7 @@ class XdWelcome extends StatelessWidget {
                   ),
                   Container(
                     width: width * 0.85,
-                    height: 45,
+                    height: 48,
                     child: ElevatedButton(
                       child: Text(
                         "メールアドレスで登録",
@@ -140,7 +137,7 @@ class XdWelcome extends StatelessWidget {
                         primary: Colors.white,
                         onPrimary: Colors.black,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
                       onPressed: () {
@@ -155,7 +152,7 @@ class XdWelcome extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: width * 0.85,
-                    height: 45,
+                    height: 48,
                     margin: const EdgeInsets.only(top: 100, bottom: 10.0),
                     child: ElevatedButton(
                       child: Text(
@@ -166,10 +163,10 @@ class XdWelcome extends StatelessWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff132641),
+                        primary: Color.fromRGBO(39, 83, 147, 1),
                         onPrimary: Colors.black,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
                       onPressed: () {},
@@ -177,7 +174,7 @@ class XdWelcome extends StatelessWidget {
                   ),
                   Container(
                     width: width * 0.85,
-                    height: 45,
+                    height: 48,
                     child: ElevatedButton(
                       child: Text(
                         "メールアドレスでログイン",
@@ -190,7 +187,7 @@ class XdWelcome extends StatelessWidget {
                         primary: Colors.white,
                         onPrimary: Colors.black,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
                       onPressed: () {
@@ -240,10 +237,10 @@ Widget tabController(BuildContext context, Widget createTab, Widget loginTab) {
               unselectedLabelColor: Colors.grey,
               indicatorColor: Colors.black,
               tabs: _tabs.map((TabInfo tab) {
-                return Ink(child: Tab(text: tab.label));
+                return Tab(text: tab.label);
               }).toList(),
             ),
-            preferredSize: Size.fromHeight(10.0),
+            preferredSize: Size.fromHeight(6.0),
           ),
         ),
         preferredSize: Size.fromHeight(50.0),

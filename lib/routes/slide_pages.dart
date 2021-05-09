@@ -82,8 +82,8 @@ class SlidePages extends StatelessWidget {
       child: Column(
           children: <Widget>[
             Container(
-              width: 50.0,
-              height:  50.0,
+              width: 40.0,
+              height:  40.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(imagePath),
