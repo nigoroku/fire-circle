@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'xd_sign_up.dart';
+import 'sign_up_page.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -221,7 +221,7 @@ class XdGetStarted3 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUp())
+                          MaterialPageRoute(builder: (context) => SignUpPage())
                       );
                     },
                   ),

@@ -1,27 +1,27 @@
 
-class User {
+class UserAccount {
 
-  String userId;
+  String uid;
 
-  String email;
+  String? email;
 
-  String accountName;
+  String? accountName;
 
-  String password;
+  String? password;
 
   String? avatarImg;
 
-  String role;
+  String? role;
 
-  User({required this.userId, required this.email, required this.accountName,
-      required this.password, this.avatarImg, required this.role});
+  UserAccount({required this.uid, this.email, this.accountName,
+      this.password, this.avatarImg, this.role});
 
-  factory User.fromMap(Map<String, dynamic> map) =>
-      User(userId: map['user_id'], email: map['email'], accountName: map['account_name'],
+  factory UserAccount.fromMap(Map<String, dynamic> map) =>
+      UserAccount(uid: map['uid'], email: map['email'], accountName: map['account_name'],
           password: map['password'], avatarImg: map['avatar_img'], role: map['role']);
 
   Map<String, dynamic> toMap() => {
-    'user_id': userId,
+    'uid': uid,
     'email': email,
     'account_name': accountName,
     'password': password,

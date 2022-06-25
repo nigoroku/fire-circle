@@ -3,8 +3,12 @@ import './xd_top.dart';
 import './search_dialog.dart';
 import '../models/camp_site.dart';
 import '../helpers/size_config_helper.dart';
+import '../services/user_service.dart';
 
 class SlidePages extends StatelessWidget {
+
+  final UserService _auth = UserService();
+
   SlidePages({
     Key? key,
   }) : super(key: key);
@@ -12,9 +16,13 @@ class SlidePages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var xdTop = new XdTop();
+
+    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        key: _scaffoldKey,
         body: Stack(children: <Widget>[
           TabBarView(children: <Widget>[
             xdTop.topPage(),
@@ -26,9 +34,7 @@ class SlidePages extends StatelessWidget {
             child: AppBar(
               backgroundColor: Colors.white,
               leading: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/");
-                },
+                onPressed: () => _scaffoldKey.currentState!.openDrawer(),
                 icon: Icon(Icons.menu),
                 color: Colors.black,
               ),
@@ -71,6 +77,32 @@ class SlidePages extends StatelessWidget {
           },
           child: Icon(Icons.search, color: Colors.black),
           backgroundColor: Colors.white,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('sharecam'),
+              ),
+              ListTile(
+                title: Text('アカウント設定'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('ログアウト'),
+                onTap: () async {
+                  await _auth.signOut();
+                  Navigator.of(context).pushNamed("/");
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
